@@ -20,76 +20,68 @@
         aria-label="Search">
       <!-- Button trigger modal -->
        
-      <button id="addTask" type="button" class="btn addTask text-white ms-2  fw-semibold" data-bs-toggle="modal"
-        data-bs-target="#addtask"> New Task</button>
+      <button id="addTask" type="button" class="btn addTask text-white ms-2 fw-semibold" data-bs-toggle="modal"
+        data-bs-target="#addtask">New Task</button>
       
-        
-      <button type="button" class="btn btn-secondary text-white ms-2  fw-semibold" data-bs-toggle="modal"
-        data-bs-target="#edittask"> edit Task</button>
-      
-          
+      <button type="button" class="btn btn-secondary text-white ms-2 fw-semibold" data-bs-toggle="modal"
+        data-bs-target="#edittask">Edit Task</button>
     </div>
 
     <div id='task-container' class="row pt-5 container-fluid">
-
     </div>
-    <div>
-    <!-- Modal for new task-->
-    <div class="modal fade" id="addtask" tabindex="-1" aria-labelledby="addtaskModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="addtaskModalLabel">Take a Note</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div id='create-task'>
-              <form id="task-form">
-                <input id="title" class="form-control  border border-2 border-secondary " placeholder="title...">
-                <br>
-                <input id="description" class="form-control  border border-2 border-secondary "placeholder="des..." >
-                <br>
-                <div class="d-flex justify-content-end">
-                  <input type="submit" class="btn addTask text-white" value="Add task">
-                </form>
+  </div>
   
-                </div>
-            </div>
+  <!-- Modal for new task -->
+  <div class="modal fade" id="addtask" tabindex="-1" aria-labelledby="addtaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addtaskModalLabel">Take a Note</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id='create-task'>
+            <form id="task-form">
+              <input id="title" class="form-control border border-2 border-secondary" placeholder="title...">
+              <br>
+              <input id="description" class="form-control border border-2 border-secondary" placeholder="description...">
+              <br>
+              <div class="d-flex justify-content-end">
+                <input type="submit" class="btn addTask text-white" value="Add task">
+              </div>
+            </form>
           </div>
         </div>
       </div>
-           <!-- Modal for edit task-->
-           <div class="modal fade" id="edittask" tabindex="-1" aria-labelledby="edittaskModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="edittaskModalLabel">Take a Note</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <div id='create-task'>
-                    <form id="task-form">
-                      <input id="title" class="form-control  border border-2 border-secondary " placeholder="title...">
-                      <br>
-                      <input id="description" class="form-control  border border-2 border-secondary "placeholder="des..." >
-                      <br>
-                      <div class="d-flex justify-content-end">
-                        <input type="submit" class="btn addTask text-white" value="Add task">
-                      </form>
-        
-                      </div>
-                  </div>
-                </div>
+    </div>
+  </div>
 
+  <!-- Modal for edit task -->
+  <div class="modal fade" id="edittask" tabindex="-1" aria-labelledby="edittaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="edittaskModalLabel">Edit Task</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id='edit-task'>
+            <form id="edit-task-form">
+              <input id="edit-title" class="form-control border border-2 border-secondary" placeholder="title...">
+              <br>
+              <input id="edit-description" class="form-control border border-2 border-secondary" placeholder="description...">
+              <br>
+              <div class="d-flex justify-content-end">
+                <input type="submit" class="btn addTask text-white" value="Edit task">
               </div>
-            </div>
-            
-                  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
  
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 </html>
