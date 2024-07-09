@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="card-body fs-5">${task.description}</p>
         <div class="d-flex justify-content-end gap-2">
         <button  class="btn btn-secondary " data-bs-toggle="modal"
-        data-bs-target="#editTask" data-id="${task.id}" id="edit-${task.id}" data-action="edit" >Edit</button>
+        data-bs-target="#edittask" data-id="${task.id}" id="edit-${task.id}" data-action="edit" >Edit</button>
         <button class="btn btn-danger" data-id="${task.id}" id="delete-${task.id}" data-action="delete">Delete</button>
         </div>
         </div>
@@ -48,21 +48,59 @@ document.addEventListener('DOMContentLoaded', function() {
     taskContainer.addEventListener('click', (e) => {
         if (e.target.dataset.action === 'edit') {
             
-            // const editButton = document.querySelector(`#edit-${e.target.dataset.id}`)
-            // editButton.disabled = true
       
       const task = tasks.find((t) => {
         return t.id == e.target.dataset.id
       })
-      // e.target.parentElement.innerHTML += `
-      // <div id='edit-task'>
-      //   <form id="task-form">
-      //     <input required id="edit-title" placeholder="${task.title}">
-      //     <input required id="edit-description" placeholder="${task.description}">
-      //     <input type="submit" value="Edit Task">
-      // </div>`
+      const editFormContainer=document.getElementById("edit-task");
+      editFormContainer.innerHTML=`
+      <form id="edit-task-form">
+              <input id="edit-title" class="form-control border border-2 border-secondary"  placeholder=${task.title}>
+              <br>
+              <input id="edit-description" class="form-control border border-2 border-secondary" placeholder=${task.description}>
+              <br>
+              <div class="d-flex justify-content-end">
+                <input type="submit" class="btn addTask text-white" value="Edit task">
+              </div>
+            </form>
+      `
+      const editform=document.getElementById('edit-task-form');
+      const taskId=task.id;
+      editform.addEventListener("submit",(e)=>{
+        e.preventDefault()
+        const newTitle=document.querySelector("#edit-title").value;
+        const newDescription=document.querySelector("#edit-description").value;
+        fetch(`${taskURL}/${taskId}`,{
+          method: 'PATCH',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+             title: newTitle,
+             description:newDescription
+            }),
+          })
+          .then(res => res.json())
+          .then(data => console.log(data))
+          .catch(error => console.error('Error patching data:', error));
+
+      }) 
         } else if (e.target.dataset.action === 'delete') {
-          console.log('you pressed delete')
+          const task = tasks.find((t) => {
+            return t.id == e.target.dataset.id
+          })
+          const taskId=task.id;
+          fetch(`${taskURL}/${taskId}`,{
+            method: 'DELETE',
+            })
+            .then(res => {
+            if (res.ok) {
+            console.log('Resource deleted successfully');
+            } else {
+            console.error('Error deleting resource:', res.status);
+            }
+            })
+            .catch(error => console.error('Error deleting resource:', error));
         }
       }) 
  })

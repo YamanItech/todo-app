@@ -15,7 +15,7 @@
     Todo
   </h1>
   <div class="header pt-5">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" >
       <input class="form-control w-25 border border-2 border-secondary " type="search" placeholder="Search Task"
         aria-label="Search">
       <!-- Button trigger modal -->
@@ -23,8 +23,7 @@
       <button id="addTask" type="button" class="btn addTask text-white ms-2 fw-semibold" data-bs-toggle="modal"
         data-bs-target="#addtask">New Task</button>
       
-      <button type="button" class="btn btn-secondary text-white ms-2 fw-semibold" data-bs-toggle="modal"
-        data-bs-target="#edittask">Edit Task</button>
+      
     </div>
 
     <div id='task-container' class="row pt-5 container-fluid">
@@ -66,15 +65,7 @@
         </div>
         <div class="modal-body">
           <div id='edit-task'>
-            <form id="edit-task-form">
-              <input id="edit-title" class="form-control border border-2 border-secondary" placeholder="title...">
-              <br>
-              <input id="edit-description" class="form-control border border-2 border-secondary" placeholder="description...">
-              <br>
-              <div class="d-flex justify-content-end">
-                <input type="submit" class="btn addTask text-white" value="Edit task">
-              </div>
-            </form>
+            
           </div>
         </div>
       </div>
